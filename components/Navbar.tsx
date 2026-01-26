@@ -4,20 +4,20 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+const navItems = [
+  { name: 'Home', href: 'home' },
+  { name: 'About', href: 'about' },
+  { name: 'Experience', href: 'experience' },
+  { name: 'Projects', href: 'projects' },
+  { name: 'Blog', href: 'blog' },
+  { name: 'Certifications', href: 'certifications' },
+  { name: 'Contact', href: 'contact' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { name: 'Home', href: 'home' },
-    { name: 'About', href: 'about' },
-    { name: 'Experience', href: 'experience' },
-    { name: 'Projects', href: 'projects' },
-    { name: 'Blog', href: 'blog' },
-    { name: 'Certifications', href: 'certifications' },
-    { name: 'Contact', href: 'contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
