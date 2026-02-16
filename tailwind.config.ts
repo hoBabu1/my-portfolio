@@ -15,6 +15,8 @@ const config: Config = {
       animation: {
         'gradient': 'gradient 8s linear infinite',
         'float': 'float 3s ease-in-out infinite',
+        'glow': 'glow 4s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         gradient: {
@@ -30,6 +32,14 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        glow: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.8' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
       },
     },

@@ -88,19 +88,19 @@ export default function Experience() {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           </div>
 
           {/* Timeline */}
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 transform md:-translate-x-1/2"></div>
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/40 to-purple-500/40 transform md:-translate-x-1/2"></div>
 
               {experiences.map((exp, index) => (
                 <motion.div
@@ -112,13 +112,13 @@ export default function Experience() {
                   className="relative mb-12 md:pl-1/2 md:ml-auto"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transform md:-translate-x-1/2 -translate-y-1/2 z-10 ring-4 ring-black"></div>
+                  <div className="absolute left-0 md:left-1/2 top-8 w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full transform md:-translate-x-1/2 -translate-y-1/2 z-10 ring-4 ring-[#050505]"></div>
 
                   <div className="ml-8 md:ml-8">
-                    <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 group">
+                    <div className="glass-card-hover p-6 group">
                       {/* Icon and Header */}
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-600/20 flex items-center justify-center flex-shrink-0 group-hover:from-blue-500/30 group-hover:to-purple-600/30 transition-all duration-300">
+                        <div className="w-12 h-12 rounded-xl bg-purple-500/[0.08] border border-purple-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/[0.12] transition-all duration-500">
                           <div className="text-purple-400">
                             {exp.icon}
                           </div>
@@ -134,7 +134,7 @@ export default function Experience() {
                       <ul className="space-y-2 mb-4">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-                            <span className="text-purple-500 mt-1.5 flex-shrink-0">▹</span>
+                            <span className="text-purple-500/60 mt-1.5 flex-shrink-0">▹</span>
                             <span className="flex-1">
                               {achievement.text}
                               {achievement.link && (
@@ -144,7 +144,7 @@ export default function Experience() {
                                     href={achievement.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-blue-400 hover:text-blue-300 transition-colors duration-200 underline"
+                                    className="text-blue-400 hover:text-blue-300 transition-colors duration-300 underline decoration-blue-400/30"
                                   >
                                     {achievement.linkText}
                                   </a>
@@ -162,10 +162,10 @@ export default function Experience() {
                             href={exp.certificateLink || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                            className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-300"
                           >
                             <span>📜</span>
-                            <span className="underline">{exp.certificate}</span>
+                            <span className="underline decoration-blue-400/30">{exp.certificate}</span>
                           </a>
                         </div>
                       )}
@@ -175,7 +175,7 @@ export default function Experience() {
                         {exp.tags.map((tag, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300 text-xs"
+                            className="px-3 py-1 bg-purple-500/[0.06] border border-purple-500/10 rounded-full text-purple-300/80 text-xs"
                           >
                             {tag}
                           </span>

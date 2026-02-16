@@ -38,12 +38,12 @@ export default function About() {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 About Me
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           </div>
 
           {/* Main Content */}
@@ -53,7 +53,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8"
+              className="glass-card p-8"
             >
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 Smart contract developer and security researcher with expertise in DeFi protocols, adversarial testing,
@@ -66,14 +66,14 @@ export default function About() {
                 Chainlink CCIP for cross-chain operations, and deployed smart contracts across 20+ blockchain networks.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Beyond development, I'm an active <span className="text-green-400 font-semibold">crypto trader</span> specializing
+                Beyond development, I'm an active <span className="text-emerald-400 font-semibold">crypto trader</span> specializing
                 in price action trading, primarily  emphasis on risk-to-reward strategies.
                 I've{' '}
                 <a
                   href="https://medium.com/@dhanyosmiblog/you-cant-trade-without-knowing-this-fab251d97983"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="text-blue-400 hover:text-blue-300 underline decoration-blue-400/30 hover:decoration-blue-300 transition-colors duration-300"
                 >
                   written about trading strategies
                 </a>
@@ -85,7 +85,7 @@ export default function About() {
                   href="https://www.linkedin.com/posts/amankumarsah_web3-blockchain-nfts-activity-7387471891743199234-YYXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="text-blue-400 hover:text-blue-300 underline decoration-blue-400/30 hover:decoration-blue-300 transition-colors duration-300"
                 >
                   speaking engagements
                 </a>
@@ -95,7 +95,7 @@ export default function About() {
           </div>
 
           {/* Highlights Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {highlights.map((item, index) => (
               <motion.div
                 key={index}
@@ -103,15 +103,15 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 group"
+                className="glass-card-hover p-6 group"
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-600/20 flex items-center justify-center mb-4 group-hover:from-blue-500/30 group-hover:to-purple-600/30 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/[0.08] border border-purple-500/10 flex items-center justify-center mb-4 group-hover:bg-purple-500/[0.12] transition-all duration-500">
                   <div className="text-purple-400">
                     {item.icon}
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <p className="text-gray-400 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>

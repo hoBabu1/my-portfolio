@@ -1,6 +1,6 @@
 'use client';
 
-import { FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTelegram, FaDownload } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { HiMail } from 'react-icons/hi';
 import { motion } from 'framer-motion';
@@ -13,10 +13,11 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated background gradients */}
+      {/* Ambient background glows */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-500/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-500/[0.07] rounded-full blur-[120px] animate-glow"></div>
+        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-purple-500/[0.07] rounded-full blur-[120px] animate-glow [animation-delay:2s]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/[0.03] rounded-full blur-[150px]"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -33,20 +34,20 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="mb-8 inline-block"
           >
-            <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <div className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               &lt;/&gt;
             </div>
           </motion.div>
 
-          {/* Main heading with gradient */}
+          {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
           >
-            <span className="text-white">Namaste 🙏, I am </span>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            <span className="text-white/90">Namaste, I am </span>
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
               BLOCKCHAIN DEV
             </span>
           </motion.h1>
@@ -56,7 +57,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             Smart contract developer and security researcher specializing in DeFi protocols. Price action trader in crypto with focus on risk-to-reward strategies.
           </motion.p>
@@ -66,10 +67,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-12"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 mb-12"
           >
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-green-400 text-sm font-medium">Available for Work</span>
+            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span className="text-emerald-400 text-sm font-medium tracking-wide">Available for Work</span>
           </motion.div>
 
           {/* CTA Buttons */}
@@ -77,20 +78,28 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap gap-4 justify-center mb-12"
+            className="flex flex-wrap gap-4 justify-center mb-14"
           >
             <button
               onClick={() => scrollToSection('projects')}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-500 hover:scale-[1.03]"
             >
               See My Projects
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="px-8 py-3 border border-gray-700 rounded-lg font-medium hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300"
+              className="px-8 py-3 border border-white/10 rounded-xl font-medium hover:border-purple-500/40 hover:bg-white/[0.03] transition-all duration-500"
             >
               More About Me
             </button>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-8 py-3 border border-emerald-500/30 rounded-xl font-medium text-emerald-400 hover:bg-emerald-500/[0.08] hover:border-emerald-400/40 transition-all duration-500 flex items-center gap-2"
+            >
+              <FaDownload className="text-sm" />
+              Download Resume
+            </a>
           </motion.div>
 
           {/* Social Links */}
@@ -98,46 +107,25 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex gap-6 justify-center"
+            className="flex gap-3 justify-center"
           >
-            <a
-              href="https://github.com/hoBabu1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110"
-            >
-              <FaGithub className="text-xl" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/amankumarsah/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110"
-            >
-              <FaLinkedin className="text-xl" />
-            </a>
-            <a
-              href="https://x.com/thedhanyosmi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110"
-            >
-              <FaXTwitter className="text-xl" />
-            </a>
-            <a
-              href="https://t.me/ho_Babu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110"
-            >
-              <FaTelegram className="text-xl" />
-            </a>
-            <a
-              href="mailto:dhanyosmiresearcher@gmail.com"
-              className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 transition-all duration-300 hover:scale-110"
-            >
-              <HiMail className="text-xl" />
-            </a>
+            {[
+              { href: "https://github.com/hoBabu1", icon: <FaGithub className="text-xl" /> },
+              { href: "https://www.linkedin.com/in/amankumarsah/", icon: <FaLinkedin className="text-xl" /> },
+              { href: "https://x.com/thedhanyosmi", icon: <FaXTwitter className="text-xl" /> },
+              { href: "https://t.me/ho_Babu", icon: <FaTelegram className="text-xl" /> },
+              { href: "mailto:dhanyosmiresearcher@gmail.com", icon: <HiMail className="text-xl" />, noTarget: true },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                target={social.noTarget ? undefined : "_blank"}
+                rel={social.noTarget ? undefined : "noopener noreferrer"}
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-purple-500/30 transition-all duration-500"
+              >
+                {social.icon}
+              </a>
+            ))}
           </motion.div>
         </motion.div>
       </div>
@@ -149,11 +137,11 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-white/10 rounded-full flex justify-center">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2"
+            className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2"
           ></motion.div>
         </div>
       </motion.div>

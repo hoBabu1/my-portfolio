@@ -29,16 +29,16 @@ export default function Certifications() {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Certifications & Achievements
               </span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
           </div>
 
           {/* Certifications Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {certifications.map((cert, index) => (
               <motion.a
                 key={index}
@@ -49,20 +49,20 @@ export default function Certifications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 group"
+                className="glass-card-hover p-6 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-600/20 flex items-center justify-center flex-shrink-0 group-hover:from-blue-500/30 group-hover:to-purple-600/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/[0.08] border border-purple-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/[0.12] transition-all duration-500">
                     <span className="text-2xl">🏆</span>
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-bold text-white mb-1 group-hover:text-purple-400 transition-colors duration-300">
                       {cert.title}
                     </h3>
                     <p className="text-gray-400 text-sm mb-1">{cert.issuer}</p>
                     <p className="text-gray-500 text-xs">{cert.year}</p>
                   </div>
-                  <div className="text-purple-400 group-hover:translate-x-1 transition-transform duration-300">
+                  <div className="text-gray-600 group-hover:text-purple-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0">
                     →
                   </div>
                 </div>

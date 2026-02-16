@@ -23,7 +23,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
       const sections = navItems.map(item => item.href);
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -53,9 +52,9 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-black/80 backdrop-blur-md border-b border-gray-800/50 shadow-lg'
+          ? 'bg-black/60 backdrop-blur-2xl border-b border-white/[0.06] shadow-2xl shadow-black/20'
           : 'bg-transparent'
       }`}
     >
@@ -66,7 +65,7 @@ export default function Navbar() {
             onClick={() => scrollToSection('home')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
           >
             &lt;/&gt;
           </motion.button>
@@ -77,17 +76,17 @@ export default function Navbar() {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className={`relative text-sm font-medium transition-colors duration-300 ${
+                className={`relative text-sm font-medium transition-all duration-300 ${
                   activeSection === item.href
-                    ? 'text-purple-400'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'text-white'
+                    : 'text-gray-500 hover:text-gray-300'
                 }`}
               >
                 {item.name}
                 {activeSection === item.href && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -99,7 +98,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="mailto:dhanyosmiresearcher@gmail.com"
-              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-500 hover:scale-[1.03]"
             >
               Hire Me
             </a>
@@ -123,20 +122,20 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-md border-b border-gray-800/50 overflow-hidden"
+            className="md:hidden bg-black/80 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-6 space-y-4">
+            <div className="container mx-auto px-6 py-6 space-y-2">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors duration-300 ${
+                  className={`block w-full text-left px-4 py-2.5 rounded-xl transition-all duration-300 ${
                     activeSection === item.href
-                      ? 'text-purple-400 bg-purple-500/10'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                      ? 'text-white bg-white/[0.05]'
+                      : 'text-gray-500 hover:text-white hover:bg-white/[0.03]'
                   }`}
                 >
                   {item.name}
@@ -145,9 +144,9 @@ export default function Navbar() {
               <motion.a
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+                transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
                 href="mailto:dhanyosmiresearcher@gmail.com"
-                className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
+                className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-500 mt-4"
               >
                 Hire Me
               </motion.a>
