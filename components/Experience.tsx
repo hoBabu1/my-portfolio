@@ -110,7 +110,18 @@ const internships = [
   }
 ];
 
-function ExperienceCard({ exp, index }: { exp: typeof remoteWork[0] & { certificate?: string; certificateLink?: string }, index: number }) {
+type ExpEntry = {
+  title: string;
+  company: string;
+  period: string;
+  icon: React.ReactNode;
+  achievements: { text: string; linkText: string | null; link: string | null }[];
+  tags: string[];
+  certificate?: string;
+  certificateLink?: string;
+};
+
+function ExperienceCard({ exp, index }: { exp: ExpEntry; index: number }) {
   return (
     <motion.div
       key={index}
