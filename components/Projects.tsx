@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCoins, FaTicketAlt, FaFileInvoice, FaEye } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCoins, FaTicketAlt, FaFileInvoice, FaEye, FaLayerGroup } from 'react-icons/fa';
 
 export default function Projects() {
   const projects = [
@@ -81,6 +81,24 @@ export default function Projects() {
     }
   ];
 
+  const fullStackProjects = [
+    {
+      title: "Prompt Arena",
+      description: "A full-stack, real-time AI writing competition platform. Successfully hosted a live event with 50+ student participants, handling concurrent team registrations, real-time test entries, and automated evaluation under production load.",
+      icon: <FaLayerGroup className="text-3xl" />,
+      tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS", "Gemini API", "Claude API", "Vercel"],
+      features: [
+        "Complete competition lifecycle engine (draft → scheduled → live → ended → evaluating → completed) with server-side state reconciliation",
+        "Role-based access control for admins and students with lobby-based dashboard and real-time countdown",
+        "Uniquely assigned questions per team per section, with auto-finalization of unsubmitted answers on timeout",
+        "AI-powered evaluation using Google Gemini and Anthropic Claude APIs with per-competition provider selector",
+        "🏆 Automatic leaderboard generation after scoring; hosted 50+ concurrent participants in production"
+      ],
+      github: null,
+      demo: "https://prompt-arena1.vercel.app/"
+    }
+  ];
+
   return (
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-6">
@@ -94,7 +112,7 @@ export default function Projects() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Featured Projects
+                Projects
               </span>
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
@@ -103,78 +121,8 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 * index }}
-                viewport={{ once: true }}
-                className="glass-card-hover overflow-hidden group"
-              >
-                {/* Project Header */}
-                <div className="p-6 border-b border-white/[0.04]">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-purple-500/[0.08] border border-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/[0.12] transition-all duration-500">
-                      <div className="text-purple-400">
-                        {project.icon}
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-purple-500/30 transition-all duration-500"
-                      >
-                        <FaGithub className="text-lg" />
-                      </a>
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-purple-500/30 transition-all duration-500"
-                      >
-                        <FaExternalLinkAlt className="text-sm" />
-                      </a>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{project.description}</p>
-                </div>
-
-                {/* Project Features */}
-                <div className="p-6">
-                  <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Key Features</h4>
-                  <ul className="space-y-2 mb-6">
-                    {project.features.map((feature, i) => (
-                      <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-                        <span className="text-purple-500/60 mt-1 flex-shrink-0">▹</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-purple-500/[0.06] border border-purple-500/10 rounded-full text-purple-300/80 text-xs"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Hackathon Projects Section */}
-          <div className="mt-20">
+          <div className="mb-20">
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
                 <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
@@ -222,7 +170,7 @@ export default function Projects() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+                    <p className="text-gray-200 text-base mb-4 leading-relaxed">{project.description}</p>
 
                     {/* Demo Video, PPT Video & Certificate */}
                     <div className="flex flex-wrap gap-2">
@@ -264,10 +212,10 @@ export default function Projects() {
 
                   {/* Project Features */}
                   <div className="p-6">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Key Features</h4>
+                    <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Features</h4>
                     <ul className="space-y-2 mb-6">
                       {project.features.map((feature, i) => (
-                        <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                        <li key={i} className="text-gray-200 text-base flex items-start gap-2">
                           <span className="text-amber-500/60 mt-1 flex-shrink-0">▹</span>
                           <span>{feature}</span>
                         </li>
@@ -279,7 +227,171 @@ export default function Projects() {
                       {project.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-amber-500/[0.06] border border-amber-500/10 rounded-full text-amber-300/80 text-xs"
+                          className="px-3 py-1 bg-amber-500/[0.06] border border-amber-500/10 rounded-full text-amber-300 text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Full Stack Projects Section */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                  Full Stack Projects
+                </span>
+              </h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto"></div>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-6">
+              {fullStackProjects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="glass-card overflow-hidden hover:border-emerald-500/20 transition-all duration-500"
+                >
+                  {/* Project Header */}
+                  <div className="p-6 border-b border-white/[0.04]">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/10 flex items-center justify-center">
+                        <div className="text-emerald-400">
+                          {project.icon}
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-emerald-500/30 transition-all duration-500"
+                          >
+                            <FaGithub className="text-lg" />
+                          </a>
+                        )}
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-emerald-500/30 transition-all duration-500"
+                        >
+                          <FaExternalLinkAlt className="text-sm" />
+                        </a>
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-gray-200 text-base leading-relaxed">{project.description}</p>
+                  </div>
+
+                  {/* Project Features */}
+                  <div className="p-6">
+                    <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Features</h4>
+                    <ul className="space-y-2 mb-6">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className={`text-base flex items-start gap-2 ${feature.startsWith('🏆') ? 'text-emerald-300 font-semibold bg-emerald-500/[0.08] border border-emerald-500/20 rounded-lg px-3 py-2' : 'text-gray-200'}`}>
+                          {!feature.startsWith('🏆') && <span className="text-emerald-500/60 mt-1 flex-shrink-0">▹</span>}
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-emerald-500/[0.06] border border-emerald-500/10 rounded-full text-emerald-300 text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Featured Projects Grid */}
+          <div className="mb-12">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Featured Projects
+                </span>
+              </h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 * index }}
+                  viewport={{ once: true }}
+                  className="glass-card-hover overflow-hidden group"
+                >
+                  {/* Project Header */}
+                  <div className="p-6 border-b border-white/[0.04]">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-purple-500/[0.08] border border-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/[0.12] transition-all duration-500">
+                        <div className="text-purple-400">
+                          {project.icon}
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-purple-500/30 transition-all duration-500"
+                        >
+                          <FaGithub className="text-lg" />
+                        </a>
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] hover:border-purple-500/30 transition-all duration-500"
+                        >
+                          <FaExternalLinkAlt className="text-sm" />
+                        </a>
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-gray-200 text-base leading-relaxed">{project.description}</p>
+                  </div>
+
+                  {/* Project Features */}
+                  <div className="p-6">
+                    <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Key Features</h4>
+                    <ul className="space-y-2 mb-6">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className="text-gray-200 text-base flex items-start gap-2">
+                          <span className="text-purple-500/60 mt-1 flex-shrink-0">▹</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-purple-500/[0.06] border border-purple-500/10 rounded-full text-purple-300 text-sm"
                         >
                           {tag}
                         </span>

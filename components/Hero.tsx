@@ -93,7 +93,7 @@ export default function Hero() {
               More About Me
             </button>
             <a
-              href="/resume.pdf"
+              href="/amanResume.pdf"
               download
               className="px-8 py-3 border border-emerald-500/30 rounded-xl font-medium text-emerald-400 hover:bg-emerald-500/[0.08] hover:border-emerald-400/40 transition-all duration-500 flex items-center gap-2"
             >
