@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +12,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      // Layout widths, named by role. `shell` is the outer container every
+      // section shares — change it here and the whole page follows.
+      maxWidth: {
+        shell: '1440px',   // outer container: tables, gallery
+        detail: '60rem',   // 960px — detail blocks
+        measure: '46rem',  // 736px — body copy
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',
