@@ -64,7 +64,42 @@ function DetailEntry({
 
 export default function ProjectDetails() {
   return (
-    <Section id="project-details" title="Project — Full Details">
+    <Section id="project-details" title="Projects — Full Details">
+          <DetailEntry
+            id="detail-talon"
+            title="Talon"
+            subtitle="On-chain transfer agent for Cleanverse-verified real-world assets — Cleanverse Build Hackathon (RWA track), solo build"
+            proofs={[
+              { label: 'Live App', href: 'https://talon-cleanverse-hackathon.vercel.app' },
+              { label: 'GitHub', href: 'https://github.com/hoBabu1/Talon-Cleanverse-Hackathon' },
+              { label: 'Demo Video', href: 'https://youtu.be/CT_b-7mUf2U' },
+              { label: 'One-Pager', href: 'https://github.com/hoBabu1/Talon-Cleanverse-Hackathon/blob/main/SUMMARY.md' },
+              { label: 'EscrowVault', href: 'https://testnet.monadscan.com/address/0xb634379B2afdF12830eaef694cFeaE80fB0dFFB7' },
+            ]}
+          >
+            <Para>
+              Every RWA project stops at issuance; Talon runs everything that happens after —
+              coupons, dividends, redemptions — and solves &ldquo;eligibility drift&rdquo;: when a
+              verified holder&apos;s identity lapses between the record date and the pay date. It pays
+              every holder still compliant, escrows the rest per-beneficiary (never forfeited), and
+              releases the moment they re-verify.
+            </Para>
+            <Bullets
+              items={[
+                'Never re-implements compliance: the Cleanverse A-Token’s own on-chain revert is the eligibility check, and escrow release is a retry of that same real transfer',
+                'Deployed and frozen on Monad testnet — EscrowVault + CorporateActionManager, with resumable batched payouts and a chained-hash commitment against replay',
+                'Frozen, expired, and no-pass are kept as distinct on-chain reasons — lapsed ≠ sanctioned — never conflated, all the way down to the audit trail',
+                '90 contract tests green (unit, fuzz, cross-contract invariants) proving sum(ledger) ≤ vault balance; a live smoke test moves real aUSDC end to end',
+                'All six Cleanverse integrations live, none mocked; a TypeScript backend indexes the chain into a Supabase read-mirror, polls A-Pass state, and builds a verifiable audit pack',
+              ]}
+            />
+            <div className="flex flex-wrap gap-2 pt-1">
+              {['Solidity', 'Foundry', 'Next.js', 'Supabase', 'RWA', 'Monad', 'TypeScript'].map((t) => (
+                <Tag key={t}>{t}</Tag>
+              ))}
+            </div>
+          </DetailEntry>
+
           <DetailEntry
             id="detail-prompt-arena"
             title="Prompt Arena"

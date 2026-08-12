@@ -14,6 +14,14 @@ type Row = {
 
 const rows: Row[] = [
   {
+    id: 'talon',
+    project: 'Talon',
+    projectLink: 'https://talon-cleanverse-hackathon.vercel.app',
+    category: 'RWA Protocol',
+    stack: 'Solidity, Foundry, Next.js, Supabase',
+    detailId: 'detail-talon',
+  },
+  {
     id: 'prompt-arena',
     project: 'Prompt Arena',
     projectLink: 'https://prompt-arena1.vercel.app/',
@@ -41,7 +49,7 @@ const rows: Row[] = [
 
 export default function Project() {
   return (
-    <Section id="projects" title="Project" meta={plural(rows.length, 'project')}>
+    <Section id="projects" title="Projects" meta={plural(rows.length, 'project')}>
       <div className="overflow-x-auto">
         <table className={`${tableClass} min-w-[680px]`}>
           <colgroup>

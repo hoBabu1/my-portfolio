@@ -59,7 +59,7 @@ const rows: Row[] = [
 
 export default function Hackathon() {
   return (
-    <Section id="hackathon" title="Hackathon" meta={plural(rows.length, 'hackathon')}>
+    <Section id="hackathon" title="Hackathons" meta={plural(rows.length, 'hackathon')}>
       <div className="overflow-x-auto">
         <table className={`${tableClass} min-w-[880px]`}>
           <colgroup>

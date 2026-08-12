@@ -71,7 +71,7 @@ export default function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
-              href="/dhanyosmiResume.pdf"
+              href="/Dhanyosmiresume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 border border-[var(--th-ink)] rounded-full font-medium text-sm text-[var(--th-ink)] hover:bg-[var(--th-fill)] hover:text-[var(--th-on-ink)] transition-colors duration-200"
@@ -79,7 +79,7 @@ export default function Hero() {
               View Resume
             </a>
             <a
-              href="/dhanyosmiResume.pdf"
+              href="/Dhanyosmiresume.pdf"
               download
               className="px-6 py-2.5 rounded-full font-medium text-sm bg-[var(--th-fill)] text-[var(--th-on-ink)] hover:bg-[var(--th-fill-hover)] transition-colors duration-200"
             >

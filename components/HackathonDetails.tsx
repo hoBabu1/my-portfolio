@@ -77,7 +77,7 @@ function DetailEntry({
 
 export default function HackathonDetails() {
   return (
-    <Section id="hackathon-details" title="Hackathon — Full Details">
+    <Section id="hackathon-details" title="Hackathons — Full Details">
           <DetailEntry
             id="detail-swarm-escrow"
             title="Swarm Escrow"
