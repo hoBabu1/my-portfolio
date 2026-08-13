@@ -12,6 +12,7 @@ type Row = {
   report: string | null;
   language: string;
   rank: string;
+  rankLink?: string;
 };
 
 const contests: Row[] = [
@@ -23,7 +24,8 @@ const contests: Row[] = [
     vulnerabilities: '1M, 1L',
     report: 'https://codehawks.cyfrin.io/c/2026-07-battlechain-confidence-pools',
     language: 'Solidity',
-    rank: 'Solo',
+    rank: '#1',
+    rankLink: 'https://codehawks.cyfrin.io/c/2026-07-battlechain-confidence-pools/results',
   },
 ];
 
@@ -40,19 +42,19 @@ const privateAudits: Row[] = [
   },
 ];
 
-function AuditTable({ rows }: { rows: Row[] }) {
+function AuditTable({ rows, showRank = true }: { rows: Row[]; showRank?: boolean }) {
   return (
     <div className="overflow-x-auto">
-      <table className={`${tableClass} min-w-[720px]`}>
+      <table className={`${tableClass} min-w-[780px]`}>
         <colgroup>
           <col className="w-[4%]" />
           <col className="w-[10%]" />
-          <col className="w-[26%]" />
+          <col className={showRank ? 'w-[24%]' : 'w-[33%]'} />
           <col className="w-[14%]" />
-          <col className="w-[14%]" />
-          <col className="w-[8%]" />
-          <col className="w-[12%]" />
-          <col className="w-[12%]" />
+          <col className="w-[19%]" />
+          <col className="w-[9%]" />
+          <col className="w-[11%]" />
+          {showRank && <col className="w-[9%]" />}
         </colgroup>
         <thead>
           <tr>
@@ -63,7 +65,7 @@ function AuditTable({ rows }: { rows: Row[] }) {
             <th className={thClass}>Vulnerabilities</th>
             <th className={thClass}>Report</th>
             <th className={thClass}>Language</th>
-            <th className={thClass}>Rank</th>
+            {showRank && <th className={thClass}>Rank</th>}
           </tr>
         </thead>
         <tbody>
@@ -92,7 +94,17 @@ function AuditTable({ rows }: { rows: Row[] }) {
                 )}
               </td>
               <td className={tdClass} data-label="Language">{row.language}</td>
-              <td className={tdClass} data-label="Rank">{row.rank}</td>
+              {showRank && (
+                <td className={tdClass} data-label="Rank">
+                  {row.rankLink ? (
+                    <a href={row.rankLink} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                      {row.rank}
+                    </a>
+                  ) : (
+                    row.rank
+                  )}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
@@ -116,7 +128,7 @@ export default function AuditContest() {
       <SubHead count={plural(privateAudits.length, 'audit')}>
         <span aria-hidden="true">🔒</span> Private Audits
       </SubHead>
-      <AuditTable rows={privateAudits} />
+      <AuditTable rows={privateAudits} showRank={false} />
     </Section>
   );
 }

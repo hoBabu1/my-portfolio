@@ -3,7 +3,7 @@
 // already let one of them drift.
 
 export const thClass =
-  'text-left text-[12px] font-bold uppercase tracking-[0.08em] text-[var(--th-muted)] pb-2.5 border-b-2 border-[var(--th-ink)] whitespace-nowrap';
+  'text-left text-[12px] font-bold uppercase tracking-[0.08em] text-[var(--th-muted)] pb-2.5 pr-4 border-b-2 border-[var(--th-ink)] whitespace-nowrap';
 
 export const tdClass =
   'py-3.5 pr-4 border-b border-[var(--th-line)] text-[15px] text-[var(--th-body)] whitespace-nowrap';

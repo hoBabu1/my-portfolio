@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from 'react';
 import Section, { plural } from './Section';
 
-const images = [
+// `fit: 'contain'` is for wide screenshots — object-cover would crop a
+// 1280x505 shot down to an unreadable sliver inside the portrait card.
+const images: { src: string; caption: string; fit?: 'cover' | 'contain' }[] = [
+  { src: '/gallery/myFirstBugBounty.jpg', caption: 'My first bug bounty', fit: 'contain' },
   { src: '/gallery/notesOnEllipicCurve.jpg', caption: 'Elliptic curve notes' },
   { src: '/gallery/currentSetup.jpg', caption: 'Current desk setup' },
   { src: '/gallery/hecticday.jpg', caption: 'A hectic day' },
@@ -95,7 +98,11 @@ export default function Gallery() {
                 style={{ width: CARD_WIDTH, height: CARD_HEIGHT }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img.src} alt={img.caption} className="w-full h-full object-cover" />
+                <img
+                  src={img.src}
+                  alt={img.caption}
+                  className={`w-full h-full ${img.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                />
                 <span className="absolute bottom-0 left-0 right-0 px-3 py-2 text-xs text-white bg-gradient-to-t from-black/70 to-transparent">
                   {img.caption}
                 </span>
